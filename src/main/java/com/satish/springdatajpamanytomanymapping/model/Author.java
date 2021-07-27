@@ -22,7 +22,7 @@ public class Author {
     private String name;
 
     @JsonManagedReference // @JsonManagedReference annotation is handled normally (serialized normally, no special handling for deserialization) and the property annotated with(Refer notes)
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinTable(
             name = "author_book",
             joinColumns = {@JoinColumn(name = "author_id")},

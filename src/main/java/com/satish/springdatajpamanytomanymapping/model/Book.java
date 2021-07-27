@@ -22,6 +22,6 @@ public class Book {
     private String title;
 
     @JsonBackReference // @JsonBackReference annotation is not serialized; and during deserialization, its value is set to instance that has the "managed" (forward) link((Refer notes)).
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "books")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST,CascadeType.REFRESH}, mappedBy = "books")
     private List<Author> authors = new ArrayList<>();
 }
