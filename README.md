@@ -1,7 +1,7 @@
 # Spring-Data-JPA-Hibernate-Many-To-Many-Mapping
 
 
-
+```json
 POST - localhost:7770/author
 {
     "authors": [
@@ -21,7 +21,9 @@ POST - localhost:7770/author
         }
     ]
 }
+```
 
+```json
 PUT - localhost:7770/author/1
 {
   "books": [
@@ -32,3 +34,4 @@ PUT - localhost:7770/author/1
   ],
   "name": "A updated"
 }
+```
