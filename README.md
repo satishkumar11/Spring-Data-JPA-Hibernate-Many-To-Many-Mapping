@@ -29,9 +29,10 @@ PUT - localhost:7770/author/1
   "books": [
     {
       "id": 1,
-      "title": "T updated"
+      "title": "Title1"
     }
   ],
-  "name": "A updated"
+  "id":1,
+  "name": "Author1 Updated"
 }
 ```
