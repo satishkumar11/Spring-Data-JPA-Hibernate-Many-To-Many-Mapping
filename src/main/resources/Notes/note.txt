@@ -1,0 +1,12 @@
+Important point about @JsonManagedReference and @JsonBackReference from stackoverflow
+
+@JsonManagedReference -> Manages the forward part of the reference and the fields marked by this annotation are the ones that get Serialised
+@JsonBackReference -> Manages the reverse part of the reference and the fields/collections marked with this annotation are not serialised.
+
+Use case: You have a one-many or many-many relationships in your entities/tables and not using the above would lead to errors like
+
+Infinite Recursion and hence stackoverflow - > Could not write content: Infinite recursion (StackOverflowError)
+
+The above errors occurs because Jackson (or some other similar) tries to serialise both ends of the relationship and ends up in a recursion.
+
+@JsonIgnore performs similar functions but the above mentioned annotations are preferable.
